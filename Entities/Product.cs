@@ -1,7 +1,6 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 
-namespace ExpressionsLambdaDelegateLINQ.Entities
+namespace Entities
 {
     public class Product  //: IComparable<Product>
     {

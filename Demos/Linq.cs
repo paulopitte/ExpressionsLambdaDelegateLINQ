@@ -4,12 +4,12 @@ using System.Linq;
 
 namespace Demos
 {
-    using ExpressionsLambdaDelegateLINQ.Entities;
+    using Entities;
 
     public class Linq : DemoBase
     {
 
-        public static void Init(List<Product> products)
+        public override void Init(List<Product> products)
         {
 
             var r1 = products.Where(p => p.Category.Tier == 1 && p.Price < 900.0);
@@ -17,9 +17,5 @@ namespace Demos
 
         }
 
-
-
-
-
-    }
+     }
 }
