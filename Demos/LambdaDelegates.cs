@@ -26,7 +26,6 @@ namespace Demos
 
 
 
-            ///ChamandA 1 via Delegate
             Action<Entities.Product> act = UpdatePrices;
             //products.ForEach(act);
 
