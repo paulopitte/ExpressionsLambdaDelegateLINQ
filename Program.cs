@@ -33,11 +33,11 @@ namespace ExpressionsLambdaDelegateLINQ
 
             new LambdaDelegates().Init(products);
 
-            new Linq().Init(products);
+           // new Linq().Init(products);
 
-            new GetHashCodeEhEquals().Init();
+           // new GetHashCodeEhEquals().Init();
 
-            new DictionarySamples().Init();
+           // new DictionarySamples().Init();
 
 
             Console.ReadKey();

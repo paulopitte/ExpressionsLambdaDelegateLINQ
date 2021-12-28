@@ -9,8 +9,42 @@ namespace Demos
 {
     public class LambdaDelegates : DemoBase
     {
+
+        public delegate void MethodSample(string value);
+
         public override void Init(List<Product> products)
         {
+
+
+
+            MethodSample methodSample = (v) => Console.WriteLine("Executando Metodo delegate: " + v);
+            methodSample("chamada delegate executada.");
+
+
+
+            // delegate Generico sem Retorno
+            Action<string> delegateGenerico = (v) =>
+            {
+                Console.WriteLine(" Nome:" + v);
+            };
+
+            delegateGenerico("Paulo Pitte");
+
+
+
+
+            CallDelegate((n) => 
+            {
+                Console.WriteLine("Calling Delegate : " + n);
+                return n.Length;
+            });
+
+
+
+            //delegate generico que retorna bool conforme regras;
+            Predicate<int> pred = (num) => num%2 == 0;
+            Console.WriteLine("Return Predicate(divisao) " + pred(4));
+            
             ///Referecia simples de metodo com parametro
             // products.Sort(CompareProducts);
 
@@ -73,5 +107,12 @@ namespace Demos
             => p.Name.ToUpper();
 
 
+
+
+        static void CallDelegate(Func<string,int> metodoDelegate)
+        {
+            var st = metodoDelegate("Pitte");
+            Console.WriteLine("Count strings =>  " + st);
+        }
     }
 }
