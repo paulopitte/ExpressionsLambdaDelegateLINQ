@@ -32,12 +32,16 @@ namespace ExpressionsLambdaDelegateLINQ
 
 
             new LambdaDelegates().Init(products);
+            Console.WriteLine("***********************************************************************************");
+            
+            new Linq().Init(products);
+            Console.WriteLine("***********************************************************************************");
 
-           // new Linq().Init(products);
+            new GetHashCodeEhEquals().Init();
+            Console.WriteLine("***********************************************************************************");
 
-           // new GetHashCodeEhEquals().Init();
-
-           // new DictionarySamples().Init();
+            new DictionarySamples().Init();
+            Console.WriteLine("***********************************************************************************");
 
 
             Console.ReadKey();

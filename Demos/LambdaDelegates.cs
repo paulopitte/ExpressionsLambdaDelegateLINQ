@@ -17,46 +17,51 @@ namespace Demos
 
 
 
-            MethodSample methodSample = (v) => Console.WriteLine("Executando Metodo delegate: " + v);
-            methodSample("chamada delegate executada.");
+            MethodSample MethodSample = (v) => Console.WriteLine("Executando Metodo delegate: " + v);
+            MethodSample("chamada delegate executada.");
+            Console.WriteLine("***********************************************************************************");
 
 
-
+            //***********************************************************
             // delegate Generico sem Retorno
-            Action<string> delegateGenerico = (v) =>
+            Action<string> DelegateGenerico = (v) =>
             {
                 Console.WriteLine(" Nome:" + v);
             };
 
-            delegateGenerico("Paulo Pitte");
+            DelegateGenerico("Paulo Pitte");
+            //**********************************************************
+            Console.WriteLine("***********************************************************************************");
 
 
-
-
+            //************************************************
             CallDelegate((n) => 
             {
                 Console.WriteLine("Calling Delegate : " + n);
                 return n.Length;
             });
+            //***************************************************
 
-
+            Console.WriteLine("***********************************************************************************");
 
             //delegate generico que retorna bool conforme regras;
             Predicate<int> pred = (num) => num%2 == 0;
             Console.WriteLine("Return Predicate(divisao) " + pred(4));
-            
+
             ///Referecia simples de metodo com parametro
             // products.Sort(CompareProducts);
+            Console.WriteLine("***********************************************************************************");
 
 
 
             Comparison<Product> comparer = CompareProducts;
             products.Sort(comparer);
 
+            Console.WriteLine("***********************************************************************************");
 
             ///Em programação funcional, expressão lambda corresponde a uma função anônima de primeira classe.
             ///Referenca lambda inline
-            //  products.Sort((p1, p2) => p1.Name.ToUpper().CompareTo(p2.Name.ToUpper()));
+            products.Sort((p1, p2) => p1.Name.ToUpper().CompareTo(p2.Name.ToUpper()));
 
 
 
