@@ -14,14 +14,33 @@ namespace Demos
 
         public override void Init(List<Product> products)
         {
+            #region PREDICATE
+
+            Predicate<int> isParPredicate = NumberIsPar;
+            Console.WriteLine(String.Concat("nÚmero Par ? :", isParPredicate(4)));
 
 
+            //delegate generico que retorna bool conforme regras;
+            Predicate<int> pred = (num) => num % 2 == 0;
+            Console.WriteLine("Return Predicate(divisao) " + pred(4));
+
+
+            // retorna somente lsta de pares
+            var lista = new int[] { 3,4,6,8,9,10,11,12,14};
+            var pares = lista.ToList().FindAll(isParPredicate);
+
+
+            Console.WriteLine("***********************************************************************************");
+
+
+            #endregion PREDICATE
 
             MethodSample MethodSample = (v) => Console.WriteLine("Executando Metodo delegate: " + v);
             MethodSample("chamada delegate executada.");
             Console.WriteLine("***********************************************************************************");
 
 
+            #region ACTION
             //***********************************************************
             // delegate Generico sem Retorno
             Action<string> DelegateGenerico = (v) =>
@@ -29,13 +48,18 @@ namespace Demos
                 Console.WriteLine(" Nome:" + v);
             };
 
+
+            Action<Entities.Product> act = UpdatePrices;
+
+            #endregion ACTION
+
             DelegateGenerico("Paulo Pitte");
             //**********************************************************
             Console.WriteLine("***********************************************************************************");
 
 
             //************************************************
-            CallDelegate((n) => 
+            CallDelegate((n) =>
             {
                 Console.WriteLine("Calling Delegate : " + n);
                 return n.Length;
@@ -44,9 +68,7 @@ namespace Demos
 
             Console.WriteLine("***********************************************************************************");
 
-            //delegate generico que retorna bool conforme regras;
-            Predicate<int> pred = (num) => num%2 == 0;
-            Console.WriteLine("Return Predicate(divisao) " + pred(4));
+          
 
             ///Referecia simples de metodo com parametro
             // products.Sort(CompareProducts);
@@ -65,7 +87,6 @@ namespace Demos
 
 
 
-            Action<Entities.Product> act = UpdatePrices;
             //products.ForEach(act);
 
 
@@ -114,10 +135,14 @@ namespace Demos
 
 
 
-        static void CallDelegate(Func<string,int> metodoDelegate)
+        static void CallDelegate(Func<string, int> metodoDelegate)
         {
             var st = metodoDelegate("Pitte");
             Console.WriteLine("Count strings =>  " + st);
         }
+
+
+
+        static bool NumberIsPar(int value) => value % 2 == 0;
     }
 }
